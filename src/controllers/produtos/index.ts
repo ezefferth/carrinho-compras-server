@@ -38,7 +38,7 @@ export async function LerProdutos(request: Request, response: Response) {
 }
 
 export async function DeletarProduto(request: Request, response: Response) {
-  const { id } = request.params;
+  const { id } = request.body;
   try {
     const aux = await prismaClient.produto.delete({
       where: {
@@ -57,7 +57,7 @@ export async function DeletarProduto(request: Request, response: Response) {
 }
 
 export async function AtualizarProduto(request: Request, response: Response) {
-  const { id } = request.params;
+  const { id } = request.body;
   const { nome, valor, imagem } = request.body;
   try {
     const aux = await prismaClient.produto.update({
